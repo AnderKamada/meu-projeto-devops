@@ -1,0 +1,15 @@
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: Docker@2
+  inputs:
+    containerRegistry: ''
+    repository: 'meu-projeto-devops'
+    command: 'build'
+    Dockerfile: 'Dockerfile'
+    tags: |
+      latest
