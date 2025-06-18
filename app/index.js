@@ -6,10 +6,10 @@ const port = 3000;
 
 // conexão com o banco
 const pool = new Pool({
-  user: 'postgres',
+  user: 'admin',
   host: 'localhost', // importante: o nome do serviço Docker
-  database: 'meubanco',
-  password: 'senha123',
+  database: 'minhaapi',
+  password: 'admin',
   port: 5432,
 });
 
