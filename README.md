@@ -72,11 +72,12 @@ cd meu-projeto-devops
 ## ✅ ETAPA 6 – CRIAR A IMAGEM DO DOCKER
 
 ```bash
-docker build -t minha-api .
+sudo docker build -t minha-api .
 ```
 Se ele não existir, recrie com:
 
 nano Dockerfile
+
 Cole este conteúdo:
 
 FROM node:18
@@ -92,7 +93,7 @@ Salve com Ctrl + O, Enter, e Ctrl + X
 ## ✅ ETAPA 7 – RODAR O CONTAINER DA APLICAÇÃO
 
 ```bash
-docker run -d -p 3000:3000 --name app -e DB_HOST=localhost -e DB_USER=admin -e DB_PASSWORD=admin -e DB_NAME=minhaapi minha-api
+sudo docker run -d -p 3000:3000 --name app -e DB_HOST=localhost -e DB_USER=admin -e DB_PASSWORD=admin -e DB_NAME=minhaapi minha-api
 ```
 
 ---
