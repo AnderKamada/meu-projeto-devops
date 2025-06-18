@@ -74,7 +74,19 @@ cd meu-projeto-devops
 ```bash
 docker build -t minha-api .
 ```
+Se ele não existir, recrie com:
 
+nano Dockerfile
+Cole este conteúdo:
+
+FROM node:18
+WORKDIR /app
+COPY ./app /app
+RUN npm install
+EXPOSE 3000
+CMD ["npm", "start"]
+
+Salve com Ctrl + O, Enter, e Ctrl + X
 ---
 
 ## ✅ ETAPA 7 – RODAR O CONTAINER DA APLICAÇÃO
