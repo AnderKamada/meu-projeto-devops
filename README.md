@@ -93,7 +93,7 @@ Salve com Ctrl + O, Enter, e Ctrl + X
 ## ✅ ETAPA 7 – RODAR O CONTAINER DA APLICAÇÃO
 
 ```bash
-sudo docker run -d -p 3000:3000 --name app -e DB_HOST=localhost -e DB_USER=admin -e DB_PASSWORD=admin -e DB_NAME=minhaapi minha-api
+sudo docker run -d --name app --network host minha-api
 ```
 
 ---
