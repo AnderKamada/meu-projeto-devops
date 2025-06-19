@@ -114,6 +114,32 @@ Você deve ver o JSON com `msg` e `dbTime`.
 - Confirme que o arquivo `azure-pipelines.yml` está na raiz do repositório
 - Se não estiver, crie e comite via portal do Azure DevOps ou pelo terminal
 
+nano azure-pipelines.yml
+
+conteudo dentro do nano yml: 
+
+trigger:
+  - main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '18.x'
+    displayName: 'Install Node.js'
+
+  - script: |
+      cd app
+      npm install
+      npm run build || echo "No build step"
+    displayName: 'Instalar dependências'
+
+  - script: |
+      echo "API pronta para ser executada."
+    displayName: 'Finalizar Pipeline'
+
 ---
 
 ## ✅ ETAPA 10 – CONFIGURAR A PIPELINE NO AZURE DEVOPS
