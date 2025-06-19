@@ -63,7 +63,7 @@ GRANT ALL PRIVILEGES ON DATABASE minhaapi TO admin;
 ## ✅ ETAPA 5 – CLONAR O PROJETO DO GITHUB
 
 ```bash
-git clone https://github.com/seu-usuario/meu-projeto-devops.git
+git clone https://github.com/AnderKamada/meu-projeto-devops.git
 cd meu-projeto-devops
 ```
 
@@ -93,7 +93,7 @@ Salve com Ctrl + O, Enter, e Ctrl + X
 ## ✅ ETAPA 7 – RODAR O CONTAINER DA APLICAÇÃO
 
 ```bash
-sudo docker run -d -p 3000:3000 --name app -e DB_HOST=localhost -e DB_USER=admin -e DB_PASSWORD=admin -e DB_NAME=minhaapi minha-api
+sudo docker run -d --name app --network host minha-api
 ```
 
 ---
@@ -113,6 +113,35 @@ Você deve ver o JSON com `msg` e `dbTime`.
 
 - Confirme que o arquivo `azure-pipelines.yml` está na raiz do repositório
 - Se não estiver, crie e comite via portal do Azure DevOps ou pelo terminal
+
+nano azure-pipelines.yml
+CTRL + O para salvar
+ENTER
+CTRL + X para sair
+
+conteudo dentro do nano yml: 
+
+trigger:
+  - main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '18.x'
+    displayName: 'Install Node.js'
+
+  - script: |
+      cd app
+      npm install
+      npm run build || echo "No build step"
+    displayName: 'Instalar dependências'
+
+  - script: |
+      echo "API pronta para ser executada."
+    displayName: 'Finalizar Pipeline'
 
 ---
 
@@ -147,6 +176,12 @@ steps:
 
 
 ---
+PARA SUBIR O PROJETO NO GITHUB, VA ATE SETTINGS DPS TOKEN e GERE A KEY E FAÇA ESSES COMANDOS:
+git remote set-url origin https://<TOKEN>@github.com/AnderKamada/meu-projeto-devops.git
+ai dps faça: 
+git add .
+git commit -m "adicionando azure-pipelines.yml"
+git push origin main
 
 ## ✅ FINALIZAÇÃO – O QUE FOI ENTREGUE
 
