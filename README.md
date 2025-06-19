@@ -63,7 +63,7 @@ GRANT ALL PRIVILEGES ON DATABASE minhaapi TO admin;
 ## ✅ ETAPA 5 – CLONAR O PROJETO DO GITHUB
 
 ```bash
-git clone https://github.com/seu-usuario/meu-projeto-devops.git
+git clone https://github.com/AnderKamada/meu-projeto-devops.git
 cd meu-projeto-devops
 ```
 
