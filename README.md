@@ -115,6 +115,9 @@ Você deve ver o JSON com `msg` e `dbTime`.
 - Se não estiver, crie e comite via portal do Azure DevOps ou pelo terminal
 
 nano azure-pipelines.yml
+CTRL + O para salvar
+ENTER
+CTRL + X para sair
 
 conteudo dentro do nano yml: 
 
@@ -173,6 +176,12 @@ steps:
 
 
 ---
+PARA SUBIR O PROJETO NO GITHUB, VA ATE SETTINGS DPS TOKEN e GERE A KEY E FAÇA ESSES COMANDOS:
+git remote set-url origin https://<TOKEN>@github.com/AnderKamada/meu-projeto-devops.git
+ai dps faça: 
+git add .
+git commit -m "adicionando azure-pipelines.yml"
+git push origin main
 
 ## ✅ FINALIZAÇÃO – O QUE FOI ENTREGUE
 
