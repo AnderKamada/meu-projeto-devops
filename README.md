@@ -176,12 +176,29 @@ steps:
 
 
 ---
-PARA SUBIR O PROJETO NO GITHUB, VA ATE SETTINGS DPS TOKEN e GERE A KEY E FAÇA ESSES COMANDOS:
-git remote set-url origin https://<TOKEN>@github.com/AnderKamada/meu-projeto-devops.git
-ai dps faça: 
+SUBIR O PROJETO: 
+# 1. Configurar Git (se necessário)
+git config --global user.name "AnderKamada"
+git config --global user.email "seu@email.com"
+
+# 2. Adicionar os arquivos
 git add .
-git commit -m "adicionando azure-pipelines.yml"
-git push origin main
+
+# 3. Committar alterações
+git commit -m "subindo projeto"
+
+# 4. Gerar Personal Access Token (https://github.com/settings/tokens)
+#    marcar "repo", copiar o token
+
+# 5. Enviar para o repositório remoto
+git push https://github.com/AnderKamada/meu-projeto-devops.git
+
+#    Username: AnderKamada
+#    Password: (cole o token)
+
+
+Se der erro de conflito (non-fast-forward) e você QUISER sobrescrever o remoto:
+git push --force https://github.com/AnderKamada/meu-projeto-devops.git
 
 ## ✅ FINALIZAÇÃO – O QUE FOI ENTREGUE
 
