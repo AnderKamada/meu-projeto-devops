@@ -1,0 +1,12 @@
+trigger:
+
+main
+pool: vmImage: 'ubuntu-latest'
+
+steps:
+
+task: NodeTool@0 inputs: versionSpec: '18.x' displayName: 'Install Node.js'
+
+script: | cd app npm install npm run build || echo "No build step" displayName: 'Instalar dependências'
+
+script: | echo "API pronta para ser executada." displayName: 'Finalizar Pipeline'
