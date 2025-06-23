@@ -122,26 +122,26 @@ CTRL + X para sair
 conteudo dentro do nano yml: 
 
 trigger:
-  - main
+- main
 
 pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-  - task: NodeTool@0
-    inputs:
-      versionSpec: '18.x'
-    displayName: 'Install Node.js'
+- task: NodeTool@0
+  inputs:
+    versionSpec: '18.x'
+  displayName: 'Install Node.js'
 
-  - script: |
-      cd app
-      npm install
-      npm run build || echo "No build step"
-    displayName: 'Instalar dependências'
+- script: |
+    cd app
+    npm install
+    npm run build || echo "No build step"
+  displayName: 'Instalar dependências'
 
-  - script: |
-      echo "API pronta para ser executada."
-    displayName: 'Finalizar Pipeline'
+- script: |
+    echo "API pronta para ser executada."
+  displayName: 'Finalizar Pipeline'
 
 ---
 
@@ -157,22 +157,26 @@ steps:
 CASO PRECISE CRIAR, CLIQUE EM STARTER PIPELINE E COLE ESSE CODIGO: 
 # azure-pipelines.yml
 trigger:
-  - main
+- main
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: 'ubuntu-latest'
 
 steps:
-  - task: NodeTool@0
-    inputs:
-      versionSpec: '18.x'
-    displayName: 'Install Node.js'
+- task: NodeTool@0
+  inputs:
+    versionSpec: '18.x'
+  displayName: 'Install Node.js'
 
-  - script: |
-      cd app
-      npm install
-      npm run start
-    displayName: 'Run application'
+- script: |
+    cd app
+    npm install
+    npm run build || echo "No build step"
+  displayName: 'Instalar dependências'
+
+- script: |
+    echo "API pronta para ser executada."
+  displayName: 'Finalizar Pipeline'
 
 
 ---
