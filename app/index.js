@@ -4,6 +4,15 @@ const { Pool } = require("pg");
 const app = express();
 const port = 3000;
 
+// conexão com o bancoAdd commentMore actions
+const pool = new Pool({
+  user: 'admin',
+  host: 'localhost', // importante: o nome do serviço Docker
+  database: 'minhaapi',
+  password: 'admin',
+  port: 5432,
+});
+
 app.get("/", async (req, res) => {
   try {
     const result = await pool.query("SELECT NOW()");
